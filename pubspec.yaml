@@ -1,7 +1,9 @@
 name: tiny_expr
 version: 0.1.0
 description: A Dart library for evaluating mathematical expressions with support for variables and functions.
-# repository: https://github.com/my_org/my_repo
+repository: https://github.com/shivanuj13/tiny_expr
+homepage: https://github.com/shivanuj13/tiny_expr
+issue_tracker: https://github.com/shivanuj13/tiny_expr/issues
 
 environment:
   sdk: ^3.3.1

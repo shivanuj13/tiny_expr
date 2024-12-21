@@ -38,8 +38,8 @@ For more examples, check the `/example` folder.
 
 ## Additional information
 
-For more information, visit the [TinyExpr GitHub repository](https://github.com/yourusername/tiny_expr).
+For more information, visit the [TinyExpr GitHub repository](https://github.com/shivanuj13/tiny_expr).
 
-To contribute to the package, please submit a pull request or file an issue on GitHub. We welcome contributions and will respond to issues as quickly as possible.
+To contribute to the package, please submit a [pull request](https://github.com/shivanuj13/tiny_expr/pulls) or file an [issue on GitHub](https://github.com/shivanuj13/tiny_expr/issues). We welcome contributions and will respond to issues as quickly as possible.
 
-If you encounter any problems or have any questions, feel free to open an issue on GitHub. We aim to provide timely and helpful responses to all inquiries.
+If you encounter any problems or have any questions, feel free to open an [issue on GitHub](https://github.com/shivanuj13/tiny_expr/issues). We aim to provide timely and helpful responses to all inquiries.
