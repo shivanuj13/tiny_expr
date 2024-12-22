@@ -62,6 +62,9 @@ void main() {
   testExpression("cos(pi)", -1.0, approx: true);
   testExpression("tan(pi / 4)", 1.0, approx: true);
   testExpression("atan2(1, 1)", pi / 4, approx: true);
+  testExpression("cosec(pi / 2)", 1.0, approx: true);
+  testExpression("sec(0)", 1.0, approx: true);
+  testExpression("cot(pi / 4)", 1.0, approx: true);
 
   // Hyperbolic Functions
   testExpression("sinh(1)", sinh(1.0), approx: true);
@@ -87,6 +90,9 @@ void main() {
   testExpression("fac(5)", 120.0);
   testExpression("fac(0)", 1.0);
   testExpression("fac(1)", 1.0);
+  testExpression("5!", 120.0); // Added example for factorial operator
+  testExpression("0!", 1.0); // Added example for factorial operator
+  testExpression("1!", 1.0); // Added example for factorial operator
 
   // Combinations (nCr) and Permutations (nPr)
   testExpression("ncr(5, 3)", 10.0);
@@ -117,6 +123,14 @@ void main() {
 
   // Nested Expressions
   testExpression("fac(3) + ncr(5, 2) * sqrt(16)", 6 + 10 * 4);
+
+  // Complex Expressions
+  testExpression("2 + 3 * (4 - 1)^2 / 2", 15.5);
+  testExpression("5! + 3^2 - sqrt(16) * log(100)", 120.0 + 9 - 4 * 2);
+  testExpression("sin(pi / 2) + cos(0) * tan(pi / 4)", 1.0 + 1.0 * 1.0,
+      approx: true);
+  testExpression("exp(1) + ln(e) - fac(3)", e + 1.0 - 6.0, approx: true);
+  testExpression("ceil(2.1) + floor(2.9) * abs(-5)", 3.0 + 2.0 * 5.0);
 
   // Errors
   try {

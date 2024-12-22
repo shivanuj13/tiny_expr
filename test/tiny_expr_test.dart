@@ -59,6 +59,9 @@ void main() {
     testExpression('Cosine', "cos(pi)", -1.0, approx: true);
     testExpression('Tangent', "tan(pi / 4)", 1.0, approx: true);
     testExpression('Atan2', "atan2(1, 1)", pi / 4, approx: true);
+    testExpression('Cosecant', "cosec(pi / 2)", 1.0, approx: true);
+    testExpression('Secant', "sec(0)", 1.0, approx: true);
+    testExpression('Cotangent', "cot(pi / 4)", 1.0, approx: true);
   });
 
   group('TinyExpr Hyperbolic Functions', () {
@@ -90,6 +93,12 @@ void main() {
     testExpression('Factorial of 5', "fac(5)", 120.0);
     testExpression('Factorial of 0', "fac(0)", 1.0);
     testExpression('Factorial of 1', "fac(1)", 1.0);
+    testExpression(
+        'Factorial Operator', "5!", 120.0); // Added test for factorial operator
+    testExpression(
+        'Factorial Operator', "0!", 1.0); // Added test for factorial operator
+    testExpression(
+        'Factorial Operator', "1!", 1.0); // Added test for factorial operator
   });
 
   group('TinyExpr Combinations and Permutations', () {
@@ -116,6 +125,20 @@ void main() {
   group('TinyExpr Nested Expressions', () {
     testExpression(
         'Nested Combination', "fac(3) + ncr(5, 2) * sqrt(16)", 6 + 10 * 4);
+  });
+
+  group('TinyExpr Complex Expressions', () {
+    testExpression('Complex Expression 1', "2 + 3 * (4 - 1)^2 / 2", 15.5);
+    testExpression('Complex Expression 2', "5! + 3^2 - sqrt(16) * log(100)",
+        120.0 + 9 - 4 * 2);
+    testExpression('Complex Expression 3', "sin(pi / 2) + cos(0) * tan(pi / 4)",
+        1.0 + 1.0 * 1.0,
+        approx: true);
+    testExpression(
+        'Complex Expression 4', "exp(1) + ln(e) - fac(3)", e + 1.0 - 6.0,
+        approx: true);
+    testExpression('Complex Expression 5', "ceil(2.1) + floor(2.9) * abs(-5)",
+        3.0 + 2.0 * 5.0);
   });
 
   group('TinyExpr Error Handling', () {

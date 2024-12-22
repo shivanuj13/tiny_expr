@@ -1,5 +1,4 @@
-// Helper Functions
-import 'dart:math';
+part of 'tiny_expr.dart';
 
 /// Calculates the factorial of a number.
 ///

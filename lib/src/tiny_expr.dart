@@ -1,6 +1,7 @@
 import 'dart:math';
-import 'package:tiny_expr/src/additional_function.dart';
 import 'package:tiny_expr/src/token.dart';
+
+part 'helper.dart';
 
 /// {@template tiny_expr}
 /// The `TinyExpr` class provides a lightweight expression parser and evaluator.
@@ -103,6 +104,20 @@ class TinyExpr {
       'sin': (double x) => sin(x),
       'cos': (double x) => cos(x),
       'tan': (double x) => tan(x),
+      'cosec': (double x) {
+        if (x == 0) throw FormatException("cosec is undefined for x = 0");
+        return 1 / sin(x);
+      },
+      'sec': (double x) {
+        if (x == pi / 2 || x == -pi / 2) {
+          throw FormatException("sec is undefined for x = ±pi/2");
+        }
+        return 1 / cos(x);
+      },
+      'cot': (double x) {
+        if (x == 0) throw FormatException("cot is undefined for x = 0");
+        return 1 / tan(x);
+      },
       'atan2': (double y, double x) => atan2(y, x),
       'log': (double x) {
         if (x <= 0) throw FormatException("log is undefined for x <= 0");
@@ -207,7 +222,8 @@ class TinyExpr {
         buffer.clear();
       }
       // Handle operators and special characters
-      else if ("+-*/^%,()".contains(char)) {
+      else if ("+-*/^%,()!".contains(char)) {
+        // Added '!' for factorial
         if (char == ',') {
           tokens.add(Token.separator());
         } else {
@@ -317,10 +333,16 @@ class TinyExpr {
   double _parseFactor() {
     double result = _parsePower();
     while (currentToken.type == TokenType.operator &&
-        currentToken.operator == '^') {
+        (currentToken.operator == '^' || currentToken.operator == '!')) {
+      // Handle factorial
+      final op = currentToken.operator;
       _nextToken();
-      final right = _parsePower();
-      result = pow(result, right) as double;
+      if (op == '^') {
+        final right = _parsePower();
+        result = pow(result, right) as double;
+      } else if (op == '!') {
+        result = factorial(result);
+      }
     }
     return result;
   }
@@ -383,5 +405,13 @@ class TinyExpr {
     } else {
       throw FormatException("Unexpected token: $currentToken");
     }
+  }
+
+  /// Returns a string representation of the `TinyExpr` instance.
+  /// for example: `TinyExpr('3 + 4 * 2 / (1 - 5)')`
+  /// used to return a string representation of the `TinyExpr` instance.
+  @override
+  String toString() {
+    return 'TinyExpr($expression)';
   }
 }
