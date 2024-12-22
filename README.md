@@ -25,7 +25,7 @@ To start using TinyExpr, add it as a dependency in your `pubspec.yaml` file:
 
 ```yaml
 dependencies:
-  tiny_expr: ^0.1.0
+  tiny_expr: ^0.2.0
 ```
 
 Then, run `flutter pub get` to install the package.

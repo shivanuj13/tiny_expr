@@ -120,4 +120,29 @@ class Token {
   ///
   /// {@macro tiny_expr_token}
   Token.error() : type = TokenType.error;
+
+  /// Returns a string representation of the token.
+  /// This method is used for debugging and logging purposes.
+  ///
+  @override
+  String toString() {
+    switch (type) {
+      case TokenType.number:
+        return 'Token(number, value: $value)';
+      case TokenType.variable:
+        return 'Token(variable, name: $name)';
+      case TokenType.operator:
+        return 'Token(operator, operator: $operator)';
+      case TokenType.function:
+        return 'Token(function, name: $name)';
+      case TokenType.constant:
+        return 'Token(constant, name: $name)';
+      case TokenType.separator:
+        return 'Token(separator)';
+      case TokenType.end:
+        return 'Token(end)';
+      case TokenType.error:
+        return 'Token(error)';
+    }
+  }
 }

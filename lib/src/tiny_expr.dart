@@ -406,4 +406,12 @@ class TinyExpr {
       throw FormatException("Unexpected token: $currentToken");
     }
   }
+
+  /// Returns a string representation of the `TinyExpr` instance.
+  /// for example: `TinyExpr('3 + 4 * 2 / (1 - 5)')`
+  /// used to return a string representation of the `TinyExpr` instance.
+  @override
+  String toString() {
+    return 'TinyExpr($expression)';
+  }
 }
