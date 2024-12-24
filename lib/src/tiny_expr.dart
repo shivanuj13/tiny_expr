@@ -286,8 +286,7 @@ class TinyExpr {
   double evaluate() {
     _tokenize(); // Tokenize the input expression
     _currentIndex = 0; // Reset the token index
-    final result = _optimize(
-        _parseExpression()); // Parse and optimize the top-level expression
+    final result = _parseExpression(); // Parse and evaluate the expression
     if (currentToken.type != TokenType.end) {
       throw FormatException("Unexpected token at the end of the expression.");
     }
