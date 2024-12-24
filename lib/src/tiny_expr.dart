@@ -294,9 +294,9 @@ class TinyExpr {
   }
 
   // Optimize constant subexpressions
-  double _optimize(double value) {
-    return value; // Currently just returns the value as-is.
-  }
+  // double _optimize(double value) {
+  //   return value; // Currently just returns the value as-is.
+  // }
 
   // Parse an expression
   double _parseExpression() {
