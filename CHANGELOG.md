@@ -1,3 +1,9 @@
+## 0.3.1
+
+### Updated
+
+- Removed unused `_optimize()`
+
 ## 0.3.0
 
 ### Added
