@@ -1,3 +1,9 @@
+## 0.3.0
+
+### Added
+
+- Support for extension method on `String` to directly use `.evaluate()` method
+
 ## 0.2.0
 
 ### Added
